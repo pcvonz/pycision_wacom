@@ -3,7 +3,7 @@ import subprocess
 from Xlib import display
 
 #Grabs current stylus settings to check if it's in precision mode or not.
-curr_stylus_settings = str(subprocess.check_output(["xinput", "list-props", "Wacom Intuos4 WL stylus"]))
+curr_stylus_settings = str(subprocess.check_output(["xinput", "list-props", "Wacom Intuos4 WL Pen stylus"]))
 curr_stylus_settings = curr_stylus_settings.split("\n")[2].split("\t")[2].split(" ")[0].replace(",", "")
 
 print(curr_stylus_settings)
@@ -38,6 +38,6 @@ print(test_string)
 print(curr_stylus_settings)
 
 if(curr_stylus_settings != "0.567568"):
-    subprocess.call(["xinput", "set-prop", "Wacom Intuos4 WL stylus", "--type=float", "Coordinate Transformation Matrix", "0.567568", "0", ".432", "0", "1", "0", "0", "0", "1"])
+    subprocess.call(["xinput", "set-prop", "Wacom Intuos4 WL Pen stylus", "--type=float", "Coordinate Transformation Matrix", "0.567568", "0", ".432", "0", "1", "0", "0", "0", "1"])
 else:
-    subprocess.call(["xinput", "set-prop", "Wacom Intuos4 WL stylus", "--type=float", "Coordinate Transformation Matrix", str(tablet_width_over_desktop_width), "0", str(tablet_x_over_desktop_width), "0", str(tablet_height_over_desktop_height), str(tablet_y_over_desktop_height), "0", "0", "1"])
+    subprocess.call(["xinput", "set-prop", "Wacom Intuos4 WL Pen stylus", "--type=float", "Coordinate Transformation Matrix", str(tablet_width_over_desktop_width), "0", str(tablet_x_over_desktop_width), "0", str(tablet_height_over_desktop_height), str(tablet_y_over_desktop_height), "0", "0", "1"])
